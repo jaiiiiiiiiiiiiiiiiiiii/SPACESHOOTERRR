@@ -143,6 +143,7 @@ function init(){
      score = 0;
      scoreEl.innerHTML=score
      bigScoreEl.innerHTML=score
+    basegamesound.play()
 }
 
 let animationId 
@@ -185,7 +186,7 @@ function animate()
              // end game
              const dist = Math.hypot(player.x - enemy.x,player.y - enemy.y)
                 if(dist - enemy.radius-player.radius < 1){
-
+                    basegamesound.pause()
                     cancelAnimationFrame(animationId)
                     ded.play();
                     modalEl.style.display = 'flex';
